@@ -1071,8 +1071,10 @@ public abstract class Model<M extends Model<M,P,O>, P extends Model.Parameters, 
     computeMetrics = computeMetrics && (!isSupervised() || (adaptFr.vec(_output.responseName()) != null && !adaptFr.vec(_output.responseName()).isBad()));
     String[] msg = adaptTestForTrain(adaptFr,true, computeMetrics);   // Adapt
     if (msg.length > 0) {
-      for (String s : msg)
+      for (String s : msg) {
+        addWarning(s);
         Log.warn(s);
+      }
     }
     Frame output = predictScoreImpl(fr, adaptFr, destination_key, j, computeMetrics); // Predict & Score
     // Log modest confusion matrices

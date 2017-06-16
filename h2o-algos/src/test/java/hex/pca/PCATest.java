@@ -308,7 +308,7 @@ public class PCATest extends TestUtil {
 
       PCAModel.PCAParameters parms = new PCAModel.PCAParameters();
       parms._train=fr._key;
-      parms._valid = tr._key;
+ //     parms._valid = tr._key;
       parms._k = 4;
       parms._max_iterations = 1000;
       parms._pca_method = PCAParameters.Method.GramSVD;
@@ -317,7 +317,7 @@ public class PCATest extends TestUtil {
       Scope.track_generic(model);
 
       // Done building model; produce a score column with cluster choices
-      fr2 = model.score(te);
+      fr2 = model.score(tr);
       Scope.track(fr2);
     } finally {
       Scope.exit();

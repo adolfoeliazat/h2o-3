@@ -1075,7 +1075,6 @@ public abstract class Model<M extends Model<M,P,O>, P extends Model.Parameters, 
         addWarning(s);
         Log.warn(s);
       }
-      j.setWarnings(msg);
     }
     Frame output = predictScoreImpl(fr, adaptFr, destination_key, j, computeMetrics); // Predict & Score
     // Log modest confusion matrices
